@@ -2,12 +2,12 @@ import random
 
 
 class PrimeHandler:
-    def __init__(self, prime_range_start: int=1000, prime_range_end: int=5000) -> None:
+    def __init__(self, prime_range_start: int=100, prime_range_end: int=250) -> None:
         """Initialize configuration for primehandler"""
         self.pr_start = prime_range_start
         self.pr_end = prime_range_end
 
-    def generate_prime_factor(self) -> int:
+    def gen_prime_fact(self) -> int:
         """Generates a prime number within the initalized pr ranges"""
         p: int
         while True:
@@ -87,7 +87,7 @@ class PrimeHandler:
             return None
         
         # Stops once iterations reach the range of integer(e)
-        for d in range(e + 1): 
+        for d in range(n - 1): 
             if (e * d) % n == 1:
                 return d
 
@@ -124,10 +124,11 @@ class PrimeHandler:
 
 if __name__ == "__main__":
     p_h = PrimeHandler()
-    # print(p_h.generate_prime_factor())
+    # print(p_h.gen_prime_fact())
     # print(p_h.eval_gcd(5000, 4059, chained=True))
     # print(p_h.eval_mult_inv(e=4059, n=5000))
     # print(p_h.gen_coprime(5000))
+    print(p_h.eval_coprime(a=650560, b=509493))
 
 
 

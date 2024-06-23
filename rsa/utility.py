@@ -1,5 +1,4 @@
 import random
-# TODO Create a class to handle prime factor generation
 
 
 class PrimeHandler:
@@ -10,13 +9,14 @@ class PrimeHandler:
 
     def generate_prime_factor(self) -> int:
         """Generates a prime number within the initalized pr ranges"""
+        p: int
         while True:
             p = random.randrange(self.pr_start, self.pr_end) # Choose random integer within given range
             if self.is_prime(p): # Check if integer is prime
                 return p
 
 
-    def eval_gcd(self, a: int, b: int, chained:bool=False) -> int:
+    def eval_gcd(self, a: int, b: int, chained:bool=False) -> int | dict:
         """Implements Euclidean algorithm to find gcd between a and b
 
         -- Will return dictionary of chained equation sequence if chained parameter is set to True otherwise
@@ -41,15 +41,15 @@ class PrimeHandler:
         
         q: int
         r: int
-        gcd: int
+        gcd: int = -1
         q = a // b # Find the quotient as an integer
         r = a % b # Find the remainder as an integer
 
         # Initialize chain
-        if chained == True:
-            chain: dict[list] = {
-                "chain": [{"id": 0, "a": a, "b": b, "q": q, "r": r}]
-            } 
+        
+        chain: dict[list] = {
+            "chain": [{"id": 0, "a": a, "b": b, "q": q, "r": r}]
+        } 
 
         # Divide previous remainder(r) into previous divisor(b) 
         while r != 0:
@@ -68,16 +68,36 @@ class PrimeHandler:
         return gcd
 
 
+    def gen_coprime(self, n: int) -> int:
+        """Finds coprime for given integer(n)"""
+        if not self._is_integer(n):
+            raise ValueError(f"n:'{n}' is not an integer.")
+
+        e: int
+        while True:
+            e = random.randrange(2, n)
+            if self.eval_coprime(a=n, b=e):
+                return e
 
 
+    def eval_mult_inv(self, e: int, n: int):
+        """Brute force implementation to find multiplicative inverse modulo(d) given the integer 'e' and modulo 'n' """
+        # Check if multiplicative inverse exists
+        if not self.eval_coprime(n, e):
+            return None
+        
+        # Stops once iterations reach the range of integer(e)
+        for d in range(e + 1): 
+            if (e * d) % n == 1:
+                return d
 
 
-    def eval_coprime(self, a, b):
-        pass
+    def eval_coprime(self, a: int, b: int):
+        """Checks if integer(a) is coprime with integer(b)"""
+        if self.eval_gcd(a, b) == 1:
+            return True
+        return False
 
-
-    def eval_multiplicative_inverse(self, a, b):
-        pass
 
 
     def is_prime(self, a: int) -> True | False:
@@ -89,17 +109,34 @@ class PrimeHandler:
                 return False
         return True
     
-
     def _is_integer(self, value):
+        """Returns true if input value is a digt otherwise ValueError"""
         try:
             int(value)
             return True
         except ValueError:
             return False
 
+    def eval_diphon(self, a, b):
+        """Implements back-substituiton to finds the diphontine equation corresponding to gcd(a,b)"""
+        pass
+
+
 if __name__ == "__main__":
     p_h = PrimeHandler()
     # print(p_h.generate_prime_factor())
-    print(p_h.eval_gcd(34, 14, chained=True))
+    # print(p_h.eval_gcd(5000, 4059, chained=True))
+    # print(p_h.eval_mult_inv(e=4059, n=5000))
+    # print(p_h.gen_coprime(5000))
 
+
+
+# TODO Create a method to workout the diphontine equation of a given 
+
+
+# -- DONE -- #
+
+# TODO Create a class to handle prime factor generation
+
+# -- DONE -- #
 

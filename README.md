@@ -1,4 +1,4 @@
-# (Pysafe) Encryption Package
+# ![alt text](image.png)(Pysafe) Encryption Package
 
 
 ## Table of Contents

@@ -1,5 +1,5 @@
 # (Pysafe) Encryption Package
-<iframe src="https://giphy.com/embed/6OrCT1jVbonHG" width="480" height="300" frameborder="0" class="giphy-embed" allowfullscreen></iframe><p><a href="https://giphy.com/gifs/wiki-hacking-obd-6OrCT1jVbonHG">via GIPHY</a></p>
+<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGh0OXg2Ym53d25oMWNlM2Mxamt6bDN3ZmwxMDcwOWJpdHdrdXd0OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6OrCT1jVbonHG/giphy.gif" alt="Hacking GIF" width="300">
 
 ## Table of Contents
 - Introduction

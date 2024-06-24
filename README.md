@@ -1,5 +1,5 @@
-# ![alt text](image.png)(Pysafe) Encryption Package
-
+# (Pysafe) Encryption Package
+<img src="https://media.giphy.com/media/l0MYGBdCtmDliYXIW/giphy.gif" alt="Hacking GIF" width="300">
 
 ## Table of Contents
 - Introduction

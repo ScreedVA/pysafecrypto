@@ -1,6 +1,9 @@
 from rsa import KeyGenerator
 
 
-key_gen = KeyGenerator(debug=True)
+key_generator = KeyGenerator()
 
-print(key_gen.generate())
+key = key_generator.generate()
+print(key)
+
+
